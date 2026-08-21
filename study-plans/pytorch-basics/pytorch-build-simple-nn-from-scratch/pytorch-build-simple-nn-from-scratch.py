@@ -10,6 +10,7 @@ class SimpleNet(nn.Module):
         super().__init__()
         self.W1 = nn.Linear(in_features, hidden_size)
         self.W2 = nn.Linear(hidden_size, out_features)
+        self.relu = nn.ReLU()
 
     def forward(self, x):
-        return self.W2(torch.relu(self.W1(x)))
+        return self.W2(self.relu(self.W1(x)))
